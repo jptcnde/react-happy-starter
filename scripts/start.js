@@ -13,9 +13,9 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-// app.get('*', function(req, res) {
-//   res.sendFile(paths.appHtml);
-// });
+app.get('*', function(req, res) {
+  res.sendFile(paths.appHtml);
+});
 
 app.listen(3000, function(err) {
   if (err) {

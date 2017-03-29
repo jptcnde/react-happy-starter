@@ -1,7 +1,17 @@
 :root {
-	--mainColor : blue;
+	--mainColor : #333333;
+}
+
+:global(.data-reactroot) {
+  vertical-align: middle;
 }
 
 h1 {
 	color: var(--mainColor);
+  display: inline;
+}
+
+.app-logo {
+  height: 80px;
+  width: 80px;
 }

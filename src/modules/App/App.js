@@ -5,7 +5,7 @@ export default class App extends Component {
   render() {
     return (
 			<div>
-				<img src={logo} className="App-logo" alt="logo" />
+				<img src={logo} className={styles['app-logo']} alt="logo" />
 				<h1>Hello, world!</h1>
 			</div>
     );
