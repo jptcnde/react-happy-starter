@@ -1,10 +1,10 @@
-var path = require('path');
-var webpack = require('webpack');
-var express = require('express');
-var config = require('../config/webpack.config.dev');
-var paths = require('../config/paths');
-var app = express();
-var compiler = webpack(config);
+import path     from 'path';
+import webpack  from 'webpack';
+import express  from 'express';
+import config   from '../internals/webpack/webpack.config.dev';
+import paths    from '../config/paths';
+const app      = express();
+const compiler = webpack(config);
 
 app.use(require('webpack-dev-middleware')(compiler, {
 	noInfo: true,
@@ -13,11 +13,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('*', function(req, res) {
+app.get('*', (req, res) => {
   res.sendFile(paths.appHtml);
 });
 
-app.listen(3000, function(err) {
+app.listen(3000, (err) => {
   if (err) {
     return console.error(err);
   }

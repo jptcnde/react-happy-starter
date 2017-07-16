@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './modules/App';
+import App from 'containers/App';
 import { AppContainer } from 'react-hot-loader';
 
 const render = Root => {
@@ -12,9 +12,8 @@ const render = Root => {
   )
 }
 
-
 render(App)
 
 if (module.hot) {
-  module.hot.accept('./modules/App', () => { render(App) })
+  module.hot.accept('containers/App', () => { render(require('./containers/App').default) })
 }

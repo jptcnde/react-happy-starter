@@ -3,8 +3,8 @@ var webpack = require('webpack');
 var fs = require('fs');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
-var paths = require('./paths');
-var getClientEnvironment = require('./env');
+var paths = require('../../config/paths');
+var getClientEnvironment = require('../../config/env');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -24,7 +24,7 @@ module.exports = {
       'webpack-hot-middleware/client',
       'webpack/hot/only-dev-server',
       'react-hot-loader/patch',
-      require.resolve('./polyfills'),
+      require.resolve('../polyfills'),
       paths.appIndexJs
     ]
   },
@@ -58,10 +58,6 @@ module.exports = {
               importLoaders: 1,
               sourceMap: 1
             }
-          },
-          {
-            loader: 'postcss-loader',
-            options: require('./postcss.config')(webpack)
           }
         ]
       },
